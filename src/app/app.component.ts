@@ -28,7 +28,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'My First List', component: ListPage },
+      { title: 'Top Characters', component: ListPage },
       { title: 'Sign In', component: SignInPage }
     ];
   }
