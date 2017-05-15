@@ -4,7 +4,6 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
 import { SignInPage } from '../pages/sign-in/sign-in';
@@ -16,7 +15,6 @@ import { CharactersServiceProvider } from '../providers/characters-service/chara
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
     ItemDetailsPage,
     ListPage,
     SignInPage
@@ -29,7 +27,6 @@ import { CharactersServiceProvider } from '../providers/characters-service/chara
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HelloIonicPage,
     ItemDetailsPage,
     ListPage,
     SignInPage

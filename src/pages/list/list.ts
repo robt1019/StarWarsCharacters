@@ -14,6 +14,7 @@ import { CharactersServiceProvider } from '../../providers/characters-service/ch
 export class ListPage {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
+  characters;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public characterService: CharactersServiceProvider) {
@@ -28,7 +29,7 @@ export class ListPage {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
-    characterService.getAll();
+    characterService.getAll().subscribe(data => this.characters = data.results);
   }
 
   itemTapped(event, item) {
