@@ -11,8 +11,15 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class CharactersServiceProvider {
 
+  private apiUrl: string = "http://swapi.co/api/";
+
   constructor(public http: Http) {
-    console.log('Hello CharactersServiceProvider Provider');
+  }
+
+  public getAll() {
+    return this.http.get(this.apiUrl + "people/")
+    .map(res => res.json())
+    .subscribe(data => console.log(data));
   }
 
 }
