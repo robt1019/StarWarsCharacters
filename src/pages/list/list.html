@@ -11,7 +11,10 @@
         <button ion-item *ngFor="let character of characters" (click)="itemTapped($event, character)">
             <ion-card>
                 <ion-item>
-                    <ion-icon name="contact" item-left></ion-icon>
+                <ion-avatar>
+                    <img src="{{character.imageUrl}}" *ngIf="character.imageUrl"/>
+                    <ion-icon name="contact" item-left *ngIf="!character.imageUrl"></ion-icon>
+                </ion-avatar>
                     <h2>{{character.name}}</h2>
                 </ion-item>
                 <ion-card-content>
