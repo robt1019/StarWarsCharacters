@@ -35,7 +35,8 @@ export class CharactersServiceProvider {
         });
     }
 
-    // at the moment the api defaults to a 10 result limit.    
+    // at the moment the api defaults to a 10 result limit.
+    // TODO: add error handling   
     public getAll() {
         return this.http.get(this.apiUrl + "people/")
             .map(res => res.json().results)
