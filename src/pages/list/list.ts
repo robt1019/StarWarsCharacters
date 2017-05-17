@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { CharactersServiceProvider } from '../../providers/characters-service/characters-service';
+import { PlanetsServiceProvider } from '../../providers/planets-service/planets-service';
 
 @Component({
     selector: 'page-list',
@@ -12,8 +13,9 @@ export class ListPage implements OnInit {
 
     private characters;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams,
-        public characterService: CharactersServiceProvider) { }
+    constructor(private navCtrl: NavController, private navParams: NavParams,
+        private characterService: CharactersServiceProvider,
+        private planetsService: PlanetsServiceProvider) { }
 
     private itemTapped(event, character) {
         this.navCtrl.push(ItemDetailsPage, {
@@ -23,6 +25,12 @@ export class ListPage implements OnInit {
 
     ngOnInit() {
         this.characterService.getAll()
-            .subscribe(characters => this.characters = characters);
+            .subscribe(characters => {
+                this.characters = characters
+                characters.forEach(character => {
+                    this.planetsService.getPlanetByUrl(character.planetUrl)
+                        .subscribe(planet => character.planet = planet)
+                })
+            });
     }
 }

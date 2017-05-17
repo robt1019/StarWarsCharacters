@@ -11,6 +11,7 @@ import { SignInPage } from '../pages/sign-in/sign-in';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CharactersServiceProvider } from '../providers/characters-service/characters-service';
+import { PlanetsServiceProvider } from '../providers/planets-service/planets-service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CharactersServiceProvider } from '../providers/characters-service/chara
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CharactersServiceProvider
+    CharactersServiceProvider,
+    PlanetsServiceProvider
   ]
 })
 export class AppModule {}

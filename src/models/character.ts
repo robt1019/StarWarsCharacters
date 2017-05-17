@@ -1,6 +1,9 @@
 export class Character {
     name: string;
     imageUrl: string;
-    detailsMinimal: string[];
-    detailsExpanded: string[];
+    gender: string;
+    birthYear: string;
+    height: string;
+    planetUrl: string;
+    planet: string;
 }
