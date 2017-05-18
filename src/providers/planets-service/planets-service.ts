@@ -11,9 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class PlanetsServiceProvider {
 
-  constructor(private http: Http) {
-    console.log('Hello PlanetsServiceProvider Provider');
-  }
+  constructor(private http: Http) {}
 
   public getPlanetByUrl(planetUrl) {
       return this.http.get(planetUrl).map(res => res.json().getResults);

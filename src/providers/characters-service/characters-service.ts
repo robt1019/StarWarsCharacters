@@ -5,14 +5,10 @@ import { Character } from '../../models/character';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/publishReplay';
 
-
-
 @Injectable()
 export class CharactersServiceProvider {
 
     private apiUrl: string = "http://swapi.co/api/";
-
-    private characters: Character[];
 
     constructor(private http: Http) { }
 
@@ -22,10 +18,10 @@ export class CharactersServiceProvider {
             "https://mi-od-live-s.legocdn.com/r/www/r/catalogs/-/media/catalogs/characters/star%20wars/new%20full%20body/hansolo-ep7.png?l.r2=1310994804",
             null,
             "https://s-media-cache-ak0.pinimg.com/736x/59/17/46/591746e74fd8be4bb7f5d56127a2f6b6.jpg",
-            null
+            "http://i.ebayimg.com/00/s/NjAwWDQ4MA==/z/iywAAOxyUylTWORZ/$_32.JPG"
         ]
         return characters.map(characterResponseObject => {
-            // randomly assign different pictures to characters
+            // randomly assign different pictures to characters to make ui look a bit less naff
             var imageIndex = Math.floor(Math.random() * 5);
             return {
                 name: characterResponseObject.name,
@@ -39,7 +35,8 @@ export class CharactersServiceProvider {
     }
 
     // at the moment the api defaults to a 10 result limit.
-    //.publishReplay and refCount are to cache values in the service http://www.syntaxsuccess.com/viewarticle/caching-with-rxjs-observables-in-angular-2.0
+    // publishReplay and refCount are to avoid unneccesary api calls 
+    // http://www.syntaxsuccess.com/viewarticle/caching-with-rxjs-observables-in-angular-2.0
     public getAll() {
         return this.http.get(this.apiUrl + "people/")
             .map(res => res.json().results)

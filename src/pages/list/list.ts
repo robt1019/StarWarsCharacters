@@ -29,8 +29,9 @@ export class ListPage implements OnInit {
                 this.characters = characters
                 characters.forEach(character => {
                     this.planetsService.getPlanetByUrl(character.planetUrl)
-                        .subscribe(planet => character.planet = planet)
+                        .subscribe(planet => character.planet = planet,
+                        err => window.alert('I couldn\'t fetch this character\'s planet info :('))
                 })
-            }, err => window.alert('problem getting characters :( Please try again later'));
+            }, err => window.alert('Problem getting characters :( Please try again later'));
     }
 }
