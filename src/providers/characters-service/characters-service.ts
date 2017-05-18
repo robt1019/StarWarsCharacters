@@ -3,6 +3,9 @@ import { Http } from '@angular/http';
 import { Character } from '../../models/character';
 
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/publishReplay';
+
+
 
 @Injectable()
 export class CharactersServiceProvider {
@@ -36,13 +39,14 @@ export class CharactersServiceProvider {
     }
 
     // at the moment the api defaults to a 10 result limit.
-    // TODO: add error handling   
+    //.publishReplay and refCount are to cache values in the service http://www.syntaxsuccess.com/viewarticle/caching-with-rxjs-observables-in-angular-2.0
     public getAll() {
         return this.http.get(this.apiUrl + "people/")
             .map(res => res.json().results)
             .map(characterResponseObject => {
                 return this.character(characterResponseObject)
-            });
+            })
+            .publishReplay(1).refCount();
     }
 
 }

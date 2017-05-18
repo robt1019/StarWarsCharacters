@@ -3,15 +3,17 @@
         <button menuToggle *ngIf="!selectedCharacter">
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Item Details</ion-title>
+        <ion-title>Character Details</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content>
     <h3 text-center *ngIf="selectedCharacter">
     {{selectedCharacter.name}}
-    <ion-icon [name]="selectedCharacter.icon"></ion-icon>
-  </h3>
-    <h4 text-center *ngIf="selectedCharacter">
-    You navigated here from <b>{{selectedCharacter.name}}</b>
-  </h4>
+        <img src="{{selectedCharacter.imageUrl}}" *ngIf="selectedCharacter.imageUrl"/>
+        <ion-icon name="contact" item-left *ngIf="!selectedCharacter.imageUrl"></ion-icon>
+        <p>Gender: {{selectedCharacter.gender}}</p>
+        <p>Birth Year: {{selectedCharacter.birthYear}}</p>
+        <p>Height: {{selectedCharacter.height}}</p>
+        <p>Planet: {{selectedCharacter.planet}}</p>
+    </h3>
 </ion-content>

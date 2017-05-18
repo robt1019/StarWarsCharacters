@@ -31,6 +31,6 @@ export class ListPage implements OnInit {
                     this.planetsService.getPlanetByUrl(character.planetUrl)
                         .subscribe(planet => character.planet = planet)
                 })
-            });
+            }, err => window.alert('problem getting characters :( Please try again later'));
     }
 }
