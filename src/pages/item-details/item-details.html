@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-        <button menuToggle *ngIf="!selectedCharacter">
+        <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>Character Details</ion-title>
@@ -8,12 +8,13 @@
 </ion-header>
 <ion-content>
     <h3 text-center *ngIf="selectedCharacter">
-    {{selectedCharacter.name}}
-        <img src="{{selectedCharacter.imageUrl}}" *ngIf="selectedCharacter.imageUrl"/>
-        <ion-icon name="contact" item-left *ngIf="!selectedCharacter.imageUrl"></ion-icon>
-        <p>Gender: {{selectedCharacter.gender}}</p>
-        <p>Birth Year: {{selectedCharacter.birthYear}}</p>
-        <p>Height: {{selectedCharacter.height}}</p>
-        <p>Planet: {{selectedCharacter.planet}}</p>
+        {{selectedCharacter.name}}
     </h3>
+    <ion-item text-center>
+        <img width="150px" src="{{selectedCharacter.imageUrl}}" />
+    </ion-item>
+    <ion-item text-center>Gender: {{selectedCharacter.gender}}</ion-item>
+    <ion-item text-center>Birth Year: {{selectedCharacter.birthYear}}</ion-item>
+    <ion-item text-center>Height: {{selectedCharacter.height}}</ion-item>
+    <ion-item text-center>Planet: {{selectedCharacter.planet.name}}</ion-item>
 </ion-content>

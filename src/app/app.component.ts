@@ -29,7 +29,7 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'Top Characters', component: ListPage },
-      { title: 'Sign In', component: SignInPage }
+      { title: 'Sign Out', component: SignInPage }
     ];
   }
 

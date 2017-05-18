@@ -16,7 +16,7 @@ export class CharactersServiceProvider {
         const imageUrls = [
             "http://www.theminifigurestore.co.uk/wp-content/uploads/2014/10/Santa-Hat-Clone-Trooper-Star-Wars-75056.png",
             "https://mi-od-live-s.legocdn.com/r/www/r/catalogs/-/media/catalogs/characters/star%20wars/new%20full%20body/hansolo-ep7.png?l.r2=1310994804",
-            null,
+            "http://www.lapetitebrique.com/202-1626-thickbox/lego-custom-minifig-star-wars-aayla-secura-jedi.jpg",
             "https://s-media-cache-ak0.pinimg.com/736x/59/17/46/591746e74fd8be4bb7f5d56127a2f6b6.jpg",
             "http://i.ebayimg.com/00/s/NjAwWDQ4MA==/z/iywAAOxyUylTWORZ/$_32.JPG"
         ]
